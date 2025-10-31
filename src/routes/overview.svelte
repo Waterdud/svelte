@@ -67,11 +67,11 @@
                         <th>loggedInUser</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody>  
                     {#each transactions as transaction}
                         <tr>
-                            <td><b>{transaction.senderName}</b></td>
-                            <td style="color: {transaction.amount > 0 ? 'green' : 'red'}">
+                            <td><b>{@html transaction.senderName.replace(/a/gi, '<span style="color: purple;">$&</span>')}</b></td>
+                            <td style="color: {transaction.amount > 200 ? 'blue' : transaction.amount > 0 ? 'green' : 'red'}">
                                 {transaction.amount} {transaction.currency}
                             </td>
                             <td>{transaction.createdAt}</td>
